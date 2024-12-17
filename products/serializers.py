@@ -15,10 +15,9 @@ class FileSerializer(serializers.ModelSerializer):
         def get_file_type(self, obj):
             return obj.get_file_type_display()
 
-
 class ProductSerializer(serializers.HyperlinkedModelSerializer):
     categories = CategorySerializer(many=True)
 
     class Meta:
-        model = Category
+        model = Product
         fields = ("id", "title", "description", "avatar", "categories", "url")
