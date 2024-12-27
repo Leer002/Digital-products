@@ -11,6 +11,11 @@ from .models import Product, File, Category
 from .serializers import ProductSerializer, FileSerializer, CategorySerializer
 from subscriptions.models import Subscription
 
+
+class Home(APIView):
+    def get(self, request):
+        return Response(headers={"location":"product-list"})
+
 class CategoryListView(APIView):
     def get(self, request):
         categories = Category.objects.all()
@@ -27,9 +32,7 @@ class CategoryDetailView(APIView):
         serializer = CategorySerializer(category, context={"request":request})
         return Response(serializer.data)
 
-
 class ProductListView(APIView):
-
     def get(self, request):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True, context={'request': request})
@@ -69,3 +72,5 @@ class FileDetailView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = FileSerializer(file, context={'request': request})
         return Response(serializer.data)
+    
+
