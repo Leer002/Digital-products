@@ -50,7 +50,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(_("first name"), max_length=30, blank=True)
     last_name = models.CharField(_("last name"), max_length=30, blank=True)
     email = models.EmailField(_("email"), unique=True, blank=True, null=True)
-    phone_number = models.BigIntegerField(_("phone number"), null=True, blank=True, validators=[validators.RegexValidator(r'989[0-3,9]\d{8}')], error_messages={'unique': _("A user with that username already exists.")})
+    phone_number = models.BigIntegerField(_("phone number"), null=True, blank=True, validators=[validators.RegexValidator(r'989[0-3,9]\d{8}')], error_messages={'unique': _("A user with that phone number already exists.")})
 
     is_staff = models.BooleanField(_("is staff"), default=False)
     is_active = models.BooleanField(_("is active"), default=True)
