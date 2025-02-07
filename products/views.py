@@ -1,4 +1,3 @@
-
 from django.shortcuts import render
 from django.utils import timezone
 
@@ -10,7 +9,6 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Product, File, Category
 from .serializers import ProductSerializer, FileSerializer, CategorySerializer
 from subscriptions.models import Subscription
-
 
 class Home(APIView):
     def get(self, request):
@@ -56,7 +54,6 @@ class ProductDetailView(APIView):
         serializer = ProductSerializer(product, context={'request': request})
         return Response(serializer.data)
     
-
 class FileListView(APIView):
 
     def get(self, request, product_id):
