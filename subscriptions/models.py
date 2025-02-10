@@ -13,7 +13,6 @@ class Package(models.Model):
     is_enable = models.BooleanField(_('is enable'), default=True)
     price = models.PositiveIntegerField(_('price'))
     duration = models.DurationField(_('duration'), blank=True, null=True)
-    # gateways = models.ManyToManyField('payments.Gateway')
     created_time = models.DateTimeField(_('created time'), auto_now_add=True)
     updated_time = models.DateTimeField(_('updated time'), auto_now=True)
 
